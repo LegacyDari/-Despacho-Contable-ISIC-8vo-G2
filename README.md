@@ -3,3 +3,4 @@ Prototipo de sistema operativo de un despacho contable creado con Python y SQLit
 
 Enlace al sitio en linea: https://despacho-contable.onrender.com/
 
+Actualizado: 19/05/2025.
