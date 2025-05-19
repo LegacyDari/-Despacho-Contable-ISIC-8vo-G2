@@ -1,0 +1,38 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estados Financieros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+    <h1>Estados financieros</h1>
+    <a href="{{ url_for('registrar_estado_financiero') }}">
+        <button type="button" class="boton-menu">Registrar nuevo estado</button>
+    </a>
+    <a href="{{ url_for('menu_principal') }}">
+        <button type="button" class="boton-menu">Regresar al menú</button>
+    </a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Cliente</th>
+                <th>Folio</th>
+                <th>Balance</th>
+                <th>Ingresos</th>
+                <th>Egresos</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>    
+        {% for estado in estados %}
+        <tr>
+            <td>{{ estado[0] }}</td>
+            <td>{{ estado[1] }}</td>
+            <td>{{ estado[2] }}</td>
+            <td>{{ estado[3] }}</td>
+            <td>{{ estado[4] }}</td>
+            <td>{{ estado[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

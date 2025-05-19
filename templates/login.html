@@ -1,0 +1,33 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+  <div class="formulario">
+    <h2>Iniciar Sesión</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+          <li><strong>{{ category.capitalize() }}:</strong> {{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <label>Usuario:</label><br>
+        <input type="text" name="username" placeholder="Ingrese un usuario entre 3 a 20 caracteres" required>
+        <label>Contraseña:</label><br>
+        <input type="password" name="password" placeholder="Ingrese una contraseña segura" required>
+        <button type="submit">Ingresar</button>
+        <a href="{{ url_for('registrar_nuevo_usuario') }}">
+          <button type="button" class="boton-menu">Registrarse</button>
+        </a>
+    </form>
+  </div>
+</body>
+</html>

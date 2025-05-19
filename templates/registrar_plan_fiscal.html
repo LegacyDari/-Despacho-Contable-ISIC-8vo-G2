@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Plan Fiscal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+  <div class="formulario">
+    <h2>Registrar Plan Fiscal</h2>
+    <a href="{{ url_for('mostrar_planes_fiscales') }}">
+      <button type="button" class="boton-menu">Ver planes fiscales</button>
+    </a>
+    <a href="{{ url_for('menu_principal') }}">
+            <button type="button" class="boton-menu">Regresar al Menú</button>
+    </a>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+            <li><strong>{{ category.capitalize() }}:</strong> {{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        <input type="text" name="id_client" placeholder="ID Cliente" required>
+        <input type="text" name="total_tax" placeholder="Impuesto Total" required>
+        <input type="text" name="submission_date" placeholder="Fecha de Presentación (YYYY-MM-DD)" required>
+        <button type="submit">Guardar</button>
+    </form>
+  </div>
+</body>
+</html>

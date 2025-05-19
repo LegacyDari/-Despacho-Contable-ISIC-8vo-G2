@@ -1,0 +1,36 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Nóminas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+    <h1>Lista de Nóminas</h1>
+    <a href="{{ url_for('registrar_nomina') }}">
+        <button type="button" class="boton-menu">Registrar nueva nómina</button>
+    </a>
+    <a href="{{ url_for('menu_principal') }}">
+        <button type="button" class="boton-menu">Regresar al menú</button>
+    </a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Cliente</th>
+                <th>Folio</th>
+                <th>Empleados</th>
+                <th>Salario Total</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        {% for nomina in nominas %}
+        <tr>
+            <td>{{ nomina[0] }}</td>
+            <td>{{ nomina[1] }}</td>
+            <td>{{ nomina[2] }}</td>
+            <td>{{ nomina[3] }}</td>
+            <td>{{ nomina[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Nómina</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+  <div class="formulario">
+    <h2>Registrar Nómina</h2>
+    <a href="{{ url_for('mostrar_nominas') }}">
+      <button type="button" class="boton-menu">Ver nóminas</button>
+    </a>
+    <a href="{{ url_for('menu_principal') }}">
+            <button type="button" class="boton-menu">Regresar al menú</button>
+    </a>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+            <li><strong>{{ category.capitalize() }}:</strong> {{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        <input type="text" name="id_client" placeholder="ID Cliente" required>
+        <input type="text" name="employees" placeholder="Número de Empleados" required>
+        <input type="text" name="total_salary" placeholder="Salario Total" required>
+        <input type="text" name="fecha" placeholder="Fecha (YYYY-MM-DD)" required>
+        <button type="submit">Guardar</button>
+    </form>
+  </div>
+</body>
+</html>

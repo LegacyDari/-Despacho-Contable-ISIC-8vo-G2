@@ -1,0 +1,56 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+    <h1>Bienvenido al Despacho Contable</h1>
+    <p>Versión: 3.0</p>
+    <a href="{{ url_for('mostrar_datos_usuario', usuario=usuario) }}">
+        <button type="button" class="boton-menu">Ver mis datos</button>
+    </a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Bitácoras</th>
+                <th>Registros</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="{{ url_for('mostrar_clientes') }}">Bitácora de clientes</a></td>
+                <td><a href="{{ url_for('registrar_cliente') }}">Registrar cliente</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ url_for('mostrar_estados_financieros') }}">Bitácora financiera</a></td>
+                <td><a href="{{ url_for('registrar_estado_financiero') }}">Registrar estado financiero</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ url_for('mostrar_citas') }}">Bitácora de citas</a></td>
+                <td><a href="{{ url_for('registrar_cita') }}">Registrar cita</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ url_for('mostrar_historial') }}">Historial de casos</a></td>
+                <td><a href="{{ url_for('registrar_historial') }}">Registrar historial</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ url_for('mostrar_nominas') }}">Bitácora de nóminas</a></td>
+                <td><a href="{{ url_for('registrar_nomina') }}">Registrar nómina</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ url_for('mostrar_planes_fiscales') }}">Bitácora planes fiscales</a></td>
+                <td><a href="{{ url_for('registrar_plan_fiscal') }}">Registrar plan fiscal</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ url_for('mostrar_auditorias') }}">Bitácora de auditorías</a></td>
+                <td><a href="{{ url_for('registrar_auditoria') }}">Registrar auditoría</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{{ url_for('cerrar_sesion') }}">
+        <button type="button" class="boton-menu">Cerrar sesión</button>
+    </a>
+</body>
+</html>

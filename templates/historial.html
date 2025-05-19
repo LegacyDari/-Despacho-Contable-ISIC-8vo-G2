@@ -1,0 +1,35 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Casos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+    <h2>Historial de casos</h2>
+    <a href="{{ url_for('registrar_historial') }}">
+        <button type="button" class="boton-menu">Registrar nuevo historial</button>
+    </a>
+    <a href="{{ url_for('menu_principal') }}">
+        <button type="button" class="boton-menu">Regresar al menú</button>
+    </a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Cliente</th>
+                <th>Folio</th>
+                <th>Descripción</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        {% for historial in historiales %}
+        <tr>
+            <td>{{ historial[0] }}</td>
+            <td>{{ historial[1] }}</td>
+            <td>{{ historial[2] }}</td>
+            <td>{{ historial[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+</body>
+</html>

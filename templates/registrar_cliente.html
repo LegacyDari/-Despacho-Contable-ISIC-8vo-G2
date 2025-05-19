@@ -1,0 +1,34 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+    <div class="formulario">
+        <h2>Registro de cliente</h2>
+        <a href="{{ url_for('mostrar_clientes') }}">
+          <button type="button" class="boton-menu">Ver clientes</button>
+        </a>
+        <a href="{{ url_for('menu_principal') }}">
+                <button type="button" class="boton-menu">Regresar al menú</button>
+        </a>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="mensaje {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <input type="text" name="nombre" placeholder="Nombre completo" required>
+            <input type="text" name="rfc" placeholder="RFC" required>
+            <input type="text" name="telefono" placeholder="Teléfono (10 dígitos)" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="text" name="direccion" placeholder="Dirección" required>
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+</body>
+</html>

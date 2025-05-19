@@ -1,0 +1,24 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registar Historial</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+    <div class="formulario">
+        <h2>Registar Historial</h2>
+        <a href="{{ url_for('mostrar_historial') }}">
+            <button type="button" class="boton-menu">Ver historial</button>
+        </a>
+        <a href="{{ url_for('menu_principal') }}">
+            <button type="button" class="boton-menu">Regresar al menú</button>
+        </a>
+            <form method="post">
+                <input type="text" name="id_cliente" placeholder="ID Cliente" required>
+                <input type="text" name="descripcion" placeholder="Descripción" required>
+                <input type="text" name="fecha" placeholder="Fecha (YYYY-MM-DD)" required>
+                <button type="submit">Guardar</button>
+            </form>
+    </div>
+</body>
+</html>

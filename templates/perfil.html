@@ -1,0 +1,18 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil del Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+    <div class="contenedor">
+        <h2>Datos del Usuario</h2>
+        <p><strong>Folio:</strong> {{ datos[0] }}</p>
+        <p><strong>Usuario:</strong> {{ datos[1] }}</p>
+        <p><strong>Contraseña:</strong> {{ datos[2] }}</p>
+    </div>
+    <a href="{{ url_for('menu_principal') }}">
+        <button type="button" class="boton-menu">Regresar al menú</button>
+    </a>
+</body>
+</html>

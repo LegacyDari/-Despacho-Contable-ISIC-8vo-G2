@@ -1,0 +1,36 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Citas Programadas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+    <h1>Citas programadas</h1>
+    <a href="{{ url_for('registrar_cita') }}">
+        <button type="button" class="boton-menu">Registrar nueva cita</button>
+    </a>
+    <a href="{{ url_for('menu_principal') }}">
+        <button type="button" class="boton-menu">Regresar al menú</button>
+    </a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Cliente</th>
+                <th>Folio</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        {% for cita in citas %}
+        <tr>
+            <td>{{ cita[0] }}</td>
+            <td>{{ cita[1] }}</td>
+            <td>{{ cita[2] }}</td>
+            <td>{{ cita[3] }}</td>
+            <td>{{ cita[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

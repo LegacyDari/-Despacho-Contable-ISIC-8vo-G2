@@ -1,0 +1,38 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Auditorías</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+    <h1>Lista de auditorías</h1>
+    <a href="{{ url_for('registrar_auditoria') }}">
+        <button type="button" class="boton-menu">Registrar nueva auditoría</button>
+    </a>
+    <a href="{{ url_for('menu_principal') }}">
+        <button type="button" class="boton-menu">Regresar al menú</button>
+    </a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Cliente</th>
+                <th>Folio</th>
+                <th>Tipo de Auditoría</th>
+                <th>Resultado</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for audit in auditorias %}
+            <tr>
+                <td>{{ audit[0] }}</td>
+                <td>{{ audit[1] }}</td>
+                <td>{{ audit[2] }}</td>
+                <td>{{ audit[3] }}</td>
+                <td>{{ audit[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

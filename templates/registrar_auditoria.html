@@ -1,0 +1,36 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Auditoría</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+  <div class="formulario">
+    <h2>Registrar Auditoría</h2>
+    <a href="{{ url_for('mostrar_auditorias') }}">
+      <button type="button" class="boton-menu">Ver auditorías</button>
+    </a>
+    <a href="{{ url_for('menu_principal') }}">
+            <button type="button" class="boton-menu">Regresar al menú</button>
+    </a>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="formulario">
+          {% for category, message in messages %}
+              <div class="mensaje {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+        <form method="post">
+            <input type="text" name="id_client" id="id_client" placeholder="ID Cliente" required>
+            <input type="text" name="audit_type" id="audit_type" placeholder="Tipo de Auditoría" required>
+            <input type="text" name="result" id="result" placeholder="Resultado" required>
+            <input type="text" name="date" id="date" placeholder="Fecha (YYYY-MM-DD)" required>
+            <button type="submit">Guardar</button>
+        </form>
+  </div>
+</body>
+</html>

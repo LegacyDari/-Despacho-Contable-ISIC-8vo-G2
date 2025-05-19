@@ -1,0 +1,35 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Planes Fiscales</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Styles.css') }}">
+</head>
+<body>
+    <h2>Lista de Planes Fiscales</h2>
+    <a href="{{ url_for('registrar_plan_fiscal') }}">
+        <button type="button" class="boton-menu">Registrar nuevo plan fiscal</button>
+    </a>
+    <a href="{{ url_for('menu_principal') }}">
+        <button type="button" class="boton-menu">Regresar al menú</button>
+    </a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID Cliente</th>
+                <th>Folio</th>
+                <th>Impuesto Total</th>
+                <th>Fecha de Presentación</th>
+            </tr>
+        </thead>
+        {% for plan in planes %}
+        <tr>
+            <td>{{ plan[0] }}</td>
+            <td>{{ plan[1] }}</td>
+            <td>{{ plan[2] }}</td>
+            <td>{{ plan[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
